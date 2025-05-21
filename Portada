@@ -1,4 +1,65 @@
-Actividad Nro.3 - Formularios
-Elaborado por: Jose Rafael Correa Cuesta
-materia: LENGUAJES DE PROGRAMACIÓN
-Universidad Catolica de Norte
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portada - Actividad Nro.3</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8fafc, #e0e7ff 80%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    .portada {
+      background: white;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+      border-radius: 18px;
+      padding: 48px 36px;
+      text-align: center;
+      min-width: 340px;
+      max-width: 400px;
+    }
+    .titulo {
+      font-size: 2em;
+      font-weight: bold;
+      color: #3b3b6d;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .autor {
+      font-size: 1.15em;
+      color: #6366f1;
+      margin-bottom: 24px;
+    }
+    .info {
+      font-size: 1em;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .universidad {
+      font-weight: bold;
+      color: #1e293b;
+      font-size: 1.13em;
+      margin-top: 20px;
+      letter-spacing: 0.5px;
+    }
+    hr {
+      margin: 20px 0;
+      border: none;
+      border-top: 1.5px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="portada">
+    <div class="titulo">Actividad N° 3: Formularios</div>
+    <hr>
+    <div class="autor">Elaborado por:<br>Jose Rafael Correa Cuesta</div>
+    <div class="info">Materia: <b>Lenguajes de Programación</b></div>
+    <div class="universidad">Universidad Católica del Norte</div>
+  </div>
+</body>
+</html>
