@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseña tu cuento</title>
+    <style>
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            width: 500px;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #d45d52;
+        }
+
+        #cuentoContainer {
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Diseña tu cuento</h1>
+            <form id="cuentoForm">
+                <div class="grid">
+                    <div class="input-group">
+                        <label for="nombre">Nombres y Apellidos:</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="apodo">Apodo:</label>
+                        <input type="text" id="apodo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cabello">Color de Cabello:</label>
+                        <input type="text" id="cabello" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ojos">Color de Ojos:</label>
+                        <input type="text" id="ojos" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="hobby">Hobby:</label>
+                        <input type="text" id="hobby" required>
+                    </div>
+                </div>
+
+                <button type="button" class="btn" onclick="generarCuento()">Continuar</button>
+            </form>
+        </div>
+
+        <div id="cuentoContainer" class="card">
+            <h2>Tu cuento:</h2>
+            <p id="cuento"></p>
+        </div>
+    </div>
+
+    <script>
+        function generarCuento() {
+            let nombre = document.getElementById("nombre").value;
+            let apodo = document.getElementById("apodo").value;
+            let cabello = document.getElementById("cabello").value;
+            let ojos = document.getElementById("ojos").value;
+            let edad = document.getElementById("edad").value;
+            let hobby = document.getElementById("hobby").value;
+
+            if (!nombre || !apodo || !cabello || !ojos || !edad || !hobby) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            let cuento = `En un pequeño pueblo vivía ${nombre}, pero todos lo conocían como ${apodo}. Su cabello ${cabello} y sus ojos ${ojos} brillaban con luz propia. A los ${edad} años descubrió su pasión por ${hobby}, lo que lo llevó a aventuras inolvidables y a dejar una huella imborrable en el mundo.`;
+
+            document.getElementById("cuento").innerText = cuento;
+            document.getElementById("cuentoContainer").style.display = "block";
+
+                      let speech = new SpeechSynthesisUtterance();
+            speech.text = cuento + " Diseño web por Jose Rafael Correa - Estudiante de Ingeniería Informática - UCN.";
+            speech.lang = "es-ES";  
+            speech.volume = 1;       
+            speech.rate = 1;         
+            speech.pitch = 1;        
+          
+            speech.onend = function() {
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            };
+
+            window.speechSynthesis.speak(speech);
+        }
+
+              window.onbeforeunload = function() {
+            window.location.href = "index.html";
+        };
+
+     
+        window.addEventListener("contextmenu", function(event) {
+            event.preventDefault(); 
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

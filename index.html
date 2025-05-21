@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systemspro - Tienda en Línea</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f4f4f4; color: #333; }
+        header {
+            background-color: #0047AB;
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        header img { max-width: 200px; margin-bottom: 15px; }
+        nav {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            margin: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover { background: #444; }
+
+        @keyframes brillar {
+            0% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffaa00, 0 0 15px #ff9900; }
+            50% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffaa00, 0 0 30px #ff9900; }
+            100% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffaa00, 0 0 15px #ff9900; }
+        }
+
+        @keyframes girar {
+            0% { transform: rotate(0deg); opacity: 0; }
+            50% { transform: rotate(180deg); opacity: 1; }
+            100% { transform: rotate(360deg); opacity: 0; }
+        }
+
+        nav a.enlace-brillante {
+            font-weight: bold;
+            color: #ffcc00;
+            font-size: 18px;
+            text-decoration: none;
+            animation: brillar 1.5s infinite alternate;
+            position: relative;
+        }
+
+        nav a.enlace-brillante::before,
+        nav a.enlace-brillante::after {
+            content: "🐴🐺🐰📖✨";
+            font-size: 18px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        nav a.enlace-brillante::before {
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        nav a.enlace-brillante::after {
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        nav a.enlace-brillante:hover::before,
+        nav a.enlace-brillante:hover::after {
+            opacity: 1;
+            animation: girar 2s infinite linear;
+        }
+
+        section {
+            padding: 40px;
+            background: white;
+            margin: 40px auto;
+            width: 85%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h2 { font-size: 30px; margin-bottom: 20px; color: #222; }
+        ul { list-style: none; padding: 10px; }
+        ul li { font-size: 20px; padding: 10px; }
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="systempro.jpg" alt="Logo Systemspro">
+    <h1>Bienvenido a Systemspro</h1>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Nuestra Tienda On-line</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contáctenos</a>
+    <a href="cotizacion.html">Solicitud de Cotización</a>
+    <a href="cuento.html" class="enlace-brillante">Diseña tu Cuento</a>
+</nav>
+
+<section id="tienda">
+    <h2>Nuestra Tienda On-line</h2>
+    <p>Somos un equipo apasionado por la tecnología. Conócenos:</p>
+    <ul>
+        <li>Jose Rafael Correa C. - CEO</li>
+        <li>Estudiante de Ingeniería Informática</li>
+        <li>Lenguajes de Programación para la Web - UCN 2025</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2025 Systemspro - Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
