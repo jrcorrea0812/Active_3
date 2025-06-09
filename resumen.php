@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-// Recuperar el ID de la cotización y datos de productos de la sesión.
+
 $cotizacion_id = $_SESSION['cotizacion_id'];
 $productos     = $_SESSION['productos'];
 
-// Conectar a la base de datos para recuperar el resto de la información.
+
 $servidor = "localhost";
-$usuario  = "tu_usuario";
-$clave    = "tu_contraseña";
-$base     = "tu_base_de_datos";
+$usuario  = "jrcorrea";
+$clave    = "Cristoredentor.15";
+$base     = "10.18.2.129";
 
 $conn = new mysqli($servidor, $usuario, $clave, $base);
 if($conn->connect_error) {
@@ -74,7 +74,7 @@ $conn->close();
     <?php endforeach; ?>
   </table>
 
-  <!-- Se puede agregar un botón para volver a la página inicial -->
+  
   <button onclick="window.location.href='index.html'">Volver</button>
 </body>
 </html>
