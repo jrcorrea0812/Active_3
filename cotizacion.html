@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitud de Cotización</title>
+  <style>
+    
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f4f7f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #555;
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    fieldset {
+      margin-top: 30px;
+      border: none;
+      padding: 0;
+    }
+    legend {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: bold;
+    }
+    .productos-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .producto {
+      width: calc(50% - 10px);
+      background: #fafafa;
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .producto:hover {
+      transform: translateY(-2px);
+    }
+    .producto img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .producto label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .check-cantidad {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .check-cantidad input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    .check-cantidad input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+
+    .acciones {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .acciones button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s;
+    }
+    .btn-primary {
+      background-color: #3498db;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #2980b9;
+    }
+    .btn-secondary {
+      background-color: #95a5a6;
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background-color: #7f8c8d;
+    }
+    
+    @media (max-width: 600px) {
+      .producto {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Solicitud de Cotización</h1>
+    <form action="procesar.php" method="POST">
+      <label for="nombre">Nombres y Apellidos:</label>
+      <input type="text" id="nombre" name="nombre" required>
+  
+      <label for="ciudad">Ciudad:</label>
+      <select id="ciudad" name="ciudad" required>
+        <option value="">Seleccione</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Cali">Cali</option>
+         <option value="Negua">Negua</option>
+          <option value="Quibdo">Quibdo</option>
+           <option value="Buenaventura">Buenaventura</option>
+       
+      </select>
+  
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" required>
+  
+      <label for="celular">Celular:</label>
+      <input type="text" id="celular" name="celular" required>
+  
+      <fieldset>
+        <legend>Productos de Interés</legend>
+        <div class="productos-list">
+       
+          <div class="producto">
+            <img src="portatil.JPG" alt="portatil">
+            <label for="portatil" >portatil</label>
+            <div class="check-cantidad">
+              <input type="checkbox" id="portatil" name="productos[]" value="portatil">
+              <input type="number" name="cantidad_portatil" min="1" placeholder="Cantidad">
+            </div>
+          </div>
+         
+          <div class="producto">
+            <img src="impresora.JPG" alt="Impresora">
+            <label for="impresora">Impresora</label>
+            <div class="check-cantidad">
+              <input type="checkbox" id="impresora" name="productos[]" value="impresora">
+              <input type="number" name="cantidad_impresora" min="1" placeholder="Cantidad">
+            </div>
+          </div>
+          
+          <div class="producto">
+            <img src="pcmesa.JPG" alt="Computador">
+            <label for="Computador">Computador</label>
+            <div class="check-cantidad">
+              <input type="checkbox" id="Computador" name="productos[]" value="Computador">
+              <input type="number" name="cantidad_computador" min="1" placeholder="Cantidad">
+            </div>
+          </div>
+         
+          <div class="producto">
+            <img src="servidor.JPG" alt="Servidor">
+            <label for="servidor">Servidor</label>
+            <div class="check-cantidad">
+              <input type="checkbox" id="servidor" name="productos[]" value="servidor">
+              <input type="number" name="cantidad_servidor" min="1" placeholder="Cantidad">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+  
+      <div class="acciones">
+        <button type="submit" name="enviar" class="btn-primary">Enviar datos</button>
+        <button type="button" onclick="window.location.href='index.html'" class="btn-secondary">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
